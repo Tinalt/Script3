@@ -11,6 +11,7 @@ local UIStroke1 = Instance.new("UIStroke")
 local Button1 = Instance.new("TextButton")
 local Button2 = Instance.new("TextButton")
 local Button3 = Instance.new("TextButton")
+local Button4 = Instance.new("TextButton")
 
 
 
@@ -173,7 +174,7 @@ Button3.Size = UDim2.new(0, 185, 0, 45)
 Button3.Position = UDim2.new(0.5, -94, 0.78, -20)
 Button3.BackgroundColor3 = Color3.new(0, 0, 0)
 Button3.BackgroundTransparency = 0.7
-Button3.Text = "Tp To Train"
+Button3.Text = "Tp To Tesla Lab"
 Button3.TextSize = 22
 Button3.Font = Enum.Font.FredokaOne
 Button3.TextColor3 = Color3.new(1, 1, 1)
@@ -197,6 +198,42 @@ UIStroke4.Color = Color3.new(1, 1, 1)
 UIStroke4.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 
 Button3.MouseButton1Click:Connect(function()
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ringtaa/tptotesla.github.io/refs/heads/main/Tptotesla.lua'))()
+end)
+
+
+
+
+Button4.Parent = Frame1
+Button4.Size = UDim2.new(0, 70, 0, 70)
+Button4.Position = UDim2.new(0.5, 165, 0.48, -20)
+Button4.BackgroundColor3 = Color3.new(0, 0, 0)
+Button4.BackgroundTransparency = 0.4
+Button4.Text = "Tp To\nTrain"
+Button4.TextSize = 22
+Button4.Font = Enum.Font.FredokaOne
+Button4.TextColor3 = Color3.new(1, 1, 1)
+Button4.TextStrokeTransparency = 1
+
+-- Black outline for Button4
+local UIStroke3 = Instance.new("UIStroke", Button4)
+UIStroke3.Color = Color3.new(0, 0, 0)
+UIStroke3.Thickness = 2
+
+-- Corner radius for Button4
+local UICorner2 = Instance.new("UICorner")
+UICorner2.Parent = Button4
+UICorner2.CornerRadius = UDim.new(0, 12)
+
+-- Add outline to Button4
+local UIStroke4 = Instance.new("UIStroke")
+UIStroke4.Parent = Button4
+UIStroke4.Thickness = 2
+UIStroke4.Color = Color3.new(1, 1, 1)
+UIStroke4.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+Button4.MouseButton1Click:Connect(function()
 local player = game:GetService("Players").LocalPlayer
 local char = player.Character or player.CharacterAdded:Wait()
 local root = char:WaitForChild("HumanoidRootPart")
