@@ -1,0 +1,587 @@
+local kavoUi = loadstring(game:HttpGet("https://raw.githubusercontent.com/Toilatin/Insane-elevator/main/Insane2"))()
+local window = kavoUi.CreateLib("Mini War","BloodTheme")
+
+---Hi
+
+local Tab1 = window:NewTab("Factory")
+local Tab1Section = Tab1:NewSection("Factory")
+
+local Tab2 = window:NewTab("Houses")
+local Tab2Section = Tab2:NewSection("Houses")
+
+local Tab3 = window:NewTab("Military")
+local Tab3Section = Tab3:NewSection("Military")
+
+local Tab4 = window:NewTab("Special")
+local Tab4Section = Tab4:NewSection("Special")
+
+local Tab5 = window:NewTab("Black Market")
+
+--Buttons
+
+local remote = game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent")
+
+local BuyAllFarm = false
+
+Tab1Section:NewToggle("Buy All Farm", "Free", function(state)
+    BuyAllFarm = state
+
+    task.spawn(function()
+        while BuyAllFarm do
+            for _, item in ipairs({
+                "FarmWheat",
+                "FarmCorn",
+                "CaveCoal",
+                "TreeFarm",
+                "Windmill",
+                "FarmCarrots",
+                "Library",
+                "OilAmerica",
+                "WoodPlant",
+                "CaveIron",
+                "CementPlant",
+                "CaveGold",
+                "Bank",
+                "Labs",
+                "CaveDiamond",
+                "CaveUran",
+                "NuclearReactor",
+                "Data Center",
+                "Blackhole Generator",
+                "Area51Lab",
+                "AntimatterReactor",
+                "QuantumCoreGenerator"
+            }) do
+                remote:FireServer({
+                    {
+                        item = item,
+                        shop = "Farm"
+                    },
+                    "#"
+                })
+            end
+
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local function CreateFarmToggle(toggleName, itemName)
+    local enabled = false
+
+    Tab1Section:NewToggle(toggleName, "Free", function(state)
+        enabled = state
+
+        task.spawn(function()
+            while enabled do
+                remote:FireServer({
+                    {
+                        item = itemName,
+                        shop = "Farm"
+                    },
+                    "#"
+                })
+
+                task.wait(0.01)
+            end
+        end)
+    end)
+end
+
+CreateFarmToggle("Wheat Farm", "FarmWheat")
+CreateFarmToggle("Corn Farm", "FarmCorn")
+CreateFarmToggle("Coal Mine", "CaveCoal")
+CreateFarmToggle("Tree Farm", "TreeFarm")
+CreateFarmToggle("Windmill", "Windmill")
+CreateFarmToggle("Carrot Farm", "FarmCarrots")
+CreateFarmToggle("Library", "Library")
+CreateFarmToggle("Oil Rig", "OilAmerica")
+CreateFarmToggle("Wood Plant", "WoodPlant")
+CreateFarmToggle("Iron Cave", "CaveIron")
+CreateFarmToggle("Cement Plant", "CementPlant")
+CreateFarmToggle("Gold Cave", "CaveGold")
+CreateFarmToggle("Bank", "Bank")
+CreateFarmToggle("Research Labs", "Labs")
+CreateFarmToggle("Diamond Cave", "CaveDiamond")
+CreateFarmToggle("Uranium Cave", "CaveUran")
+CreateFarmToggle("Nuclear Reactor", "NuclearReactor")
+CreateFarmToggle("Data Center", "Data Center")
+CreateFarmToggle("Blackhole Generator", "Blackhole Generator")
+CreateFarmToggle("Area 51 Lab", "Area51Lab")
+CreateFarmToggle("Antimatter Reactor", "AntimatterReactor")
+CreateFarmToggle("Quantum Core Generator", "QuantumCoreGenerator")
+
+
+
+
+local remote = game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent")
+
+local BuyAllHouses = false
+
+Tab2Section:NewToggle("Buy All Houses", "Free", function(state)
+    BuyAllHouses = state
+
+    task.spawn(function()
+        while BuyAllHouses do
+            for _, item in ipairs({
+                "FarmHouse",
+                "SmallHouse",
+                "House",
+                "Villa",
+                "ApartmentBuilding",
+                "ModernBlock",
+                "Skyscraper",
+                "HelixTower",
+                "TheManor",
+                "Hotel",
+                "Giant Skyscraper",
+                "TwinTurboTower"
+            }) do
+                remote:FireServer({
+                    {
+                        item = item,
+                        shop = "House"
+                    },
+                    "#"
+                })
+            end
+
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local function CreateHouseToggle(toggleName, itemName)
+    local enabled = false
+
+    Tab2Section:NewToggle(toggleName, "Free", function(state)
+        enabled = state
+
+        task.spawn(function()
+            while enabled do
+                remote:FireServer({
+                    {
+                        item = itemName,
+                        shop = "House"
+                    },
+                    "#"
+                })
+
+                task.wait(0.01)
+            end
+        end)
+    end)
+end
+
+CreateHouseToggle("Farm House", "FarmHouse")
+CreateHouseToggle("Small House", "SmallHouse")
+CreateHouseToggle("House", "House")
+CreateHouseToggle("Villa", "Villa")
+CreateHouseToggle("Apartment Building", "ApartmentBuilding")
+CreateHouseToggle("Modern Block", "ModernBlock")
+CreateHouseToggle("Skyscraper", "Skyscraper")
+CreateHouseToggle("Helix Tower", "HelixTower")
+CreateHouseToggle("The Manor", "TheManor")
+CreateHouseToggle("Hotel", "Hotel")
+CreateHouseToggle("Giant Skyscraper", "Giant Skyscraper")
+CreateHouseToggle("Twin Turbo Tower", "TwinTurboTower")
+
+
+
+
+
+
+local remote = game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent")
+
+local BuyAllMilitary = false
+
+Tab3Section:NewToggle("Buy All Military", "Free", function(state)
+    BuyAllMilitary = state
+
+    task.spawn(function()
+        while BuyAllMilitary do
+            for _, item in ipairs({
+    "BorderTower",
+    "Barracks",
+    "SniperTower",
+    "Barracks2",
+    "TankBase",
+    "HeliPad",
+    "SpecialForce",
+    "MissleHangar",
+    "Hangar",
+    "BigTankBase",
+    "BigHangar",
+    "MissleLauncher",
+    "MilitaryHospital",
+    "GeneralsBase",
+    "Air Base",
+    "Artillery Depot",
+    "Rocket Bunker",
+    "MechStation",
+    "SpiderBase",
+    "AirFortress"
+}) do
+                remote:FireServer({
+                    {
+                        item = item,
+                        shop = "Military"
+                    },
+                    "#"
+                })
+            end
+
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local function CreateMilitaryToggle(toggleName, itemName)
+    local enabled = false
+
+    Tab3Section:NewToggle(toggleName, "Free", function(state)
+        enabled = state
+
+        task.spawn(function()
+            while enabled do
+                remote:FireServer({
+                    {
+                        item = itemName,
+                        shop = "Military"
+                    },
+                    "#"
+                })
+
+                task.wait(0.01)
+            end
+        end)
+    end)
+end
+
+CreateMilitaryToggle("Border Tower", "BorderTower")
+CreateMilitaryToggle("Barracks", "Barracks")
+CreateMilitaryToggle("Sniper Tower", "SniperTower")
+CreateMilitaryToggle("Vehicle Base", "Barracks2")
+CreateMilitaryToggle("Tank Base", "TankBase")
+CreateMilitaryToggle("Heli Pad", "HeliPad")
+CreateMilitaryToggle("Special Force", "SpecialForce")
+CreateMilitaryToggle("Missile Hangar", "MissleHangar")
+CreateMilitaryToggle("Hangar", "Hangar")
+CreateMilitaryToggle("Big Tank Base", "BigTankBase")
+CreateMilitaryToggle("Big Hangar", "BigHangar")
+CreateMilitaryToggle("Missile Launcher", "MissleLauncher")
+CreateMilitaryToggle("Military Hospital", "MilitaryHospital")
+CreateMilitaryToggle("General's Base", "GeneralsBase")
+CreateMilitaryToggle("Air Base", "Air Base")
+CreateMilitaryToggle("Artillery Depot", "Artillery Depot")
+CreateMilitaryToggle("Rocket Bunker", "Rocket Bunker")
+CreateMilitaryToggle("Mech Station", "MechStation")
+CreateMilitaryToggle("Spider Base", "SpiderBase")
+CreateMilitaryToggle("Air Fortress", "AirFortress")
+
+
+
+local remote = game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent")
+
+local BuyAllDecor = false
+
+Tab4Section:NewToggle("Buy All", "Free", function(state)
+    BuyAllDecor = state
+
+    task.spawn(function()
+        while BuyAllDecor do
+            for _, item in ipairs({
+                "Workshop",
+                "Storage Center",
+                "Soldier Statue",
+                "Worker Statue"
+            }) do
+                remote:FireServer({
+                    {
+                        item = item,
+                        shop = "Decor"
+                    },
+                    "#"
+                })
+            end
+
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local function CreateToggle(toggleName, itemName)
+    local enabled = false
+
+    Tab4Section:NewToggle(toggleName, "Free", function(state)
+        enabled = state
+
+        task.spawn(function()
+            while enabled do
+                remote:FireServer({
+                    {
+                        item = itemName,
+                        shop = "Decor"
+                    },
+                    "#"
+                })
+
+                task.wait(0.01)
+            end
+        end)
+    end)
+end
+
+CreateToggle("Workshop", "Workshop")
+CreateToggle("Storage Center", "Storage Center")
+CreateToggle("Soldier Statue", "Soldier Statue")
+CreateToggle("Worker Statue", "Worker Statue")
+
+
+
+
+local Tab4Section = Tab4:NewSection("⭐️ Decorations ⭐️")
+
+local AutoBuy = false
+
+Tab4Section:NewToggle("Auto buy all Decorations", "Free", function(state)
+    AutoBuy = state
+
+    while AutoBuy do
+        for _, item in ipairs({
+            "Grass",
+            "Road2",
+            "Road3",
+            "Road1",
+            "Rocks",
+            "PineTree",
+            "StreetLamp",
+            "Tree",
+            "Lamp",
+            "Flowers",
+            "RoadWithCar",
+            "TrafficLights",
+            "Bench",
+            "Statue",
+            "SalutingStatue",
+            "Fountain"
+        }) do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({
+                {
+                    item = item,
+                    shop = "Decor"
+                },
+                "#"
+            })
+        end
+
+        task.wait(0.01)
+    end
+end)
+
+local remote = game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent")
+
+local function CreateToggle(toggleName, itemName)
+    local enabled = false
+
+    Tab4Section:NewToggle(toggleName, "Free", function(state)
+        enabled = state
+
+        task.spawn(function()
+            while enabled do
+                remote:FireServer({
+                    {
+                        item = itemName,
+                        shop = "Decor"
+                    },
+                    "#"
+                })
+
+                task.wait(0.01)
+            end
+        end)
+    end)
+end
+
+CreateToggle("Grass", "Grass")
+CreateToggle("Road", "Road2")
+CreateToggle("Rocks", "Rocks")
+CreateToggle("Striped Road", "Road1")
+CreateToggle("Road Curve", "Road3")
+CreateToggle("Street Lamp", "StreetLamp")
+CreateToggle("Pine Tree", "PineTree")
+CreateToggle("Lamp", "Lamp")
+CreateToggle("Tree", "Tree")
+CreateToggle("Car", "RoadWithCar")
+CreateToggle("Flowers", "Flowers")
+CreateToggle("Bench", "Bench")
+CreateToggle("Traffic Lights", "TrafficLights")
+CreateToggle("Fountain", "Fountain")
+CreateToggle("Saluting Statue", "SalutingStatue")
+CreateToggle("Statue", "Statue")
+
+------ BLACK MARKET -------
+
+local Tab5Section = Tab5:NewSection("Military")
+
+local SpecialForceV2 = false
+
+Tab5Section:NewToggle("Elite Base", "Free", function(state)
+    SpecialForceV2 = state
+    task.spawn(function()
+        while SpecialForceV2 do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "SpecialForceV2", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local RocketPad = false
+
+Tab5Section:NewToggle("Rocket Pad", "Free", function(state)
+    RocketPad = state
+    task.spawn(function()
+        while RocketPad do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "RocketPad", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local AdvancedHeliPad = false
+
+Tab5Section:NewToggle("Advanced Heli Pad", "Free", function(state)
+    AdvancedHeliPad = state
+    task.spawn(function()
+        while AdvancedHeliPad do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "AdvancedHeliPad", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local EliteTankBase = false
+
+Tab5Section:NewToggle("Camo Tank Base", "Free", function(state)
+    EliteTankBase = state
+    task.spawn(function()
+        while EliteTankBase do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "EliteTankBase", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local Tab5Section = Tab5:NewSection("Factory")
+
+local GemMine = false
+
+Tab5Section:NewToggle("Gem Mine", "Free", function(state)
+    GemMine = state
+    task.spawn(function()
+        while GemMine do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "GemMine", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local CloneFacility = false
+
+Tab5Section:NewToggle("Clone Facility", "Free", function(state)
+    CloneFacility = state
+    task.spawn(function()
+        while CloneFacility do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "CloneFacility", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local Tab5Section = Tab5:NewSection("⭐️ Special ⭐️")
+
+local ResearchLab = false
+
+Tab5Section:NewToggle("Research Booster", "Free", function(state)
+    ResearchLab = state
+    task.spawn(function()
+        while ResearchLab do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "ResearchLab", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local TransportPad = false
+
+Tab5Section:NewToggle("Transport Pad", "Free", function(state)
+    TransportPad = state
+    task.spawn(function()
+        while TransportPad do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "TransportPad", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local ConstructionSpecial = false
+
+Tab5Section:NewToggle("Construction Yard", "Free", function(state)
+    ConstructionSpecial = state
+    task.spawn(function()
+        while ConstructionSpecial do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "ConstructionSpecial", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local Tab5Section = Tab5:NewSection("⭐️ Decorations ⭐️")
+
+local FireworksBarrel = false
+
+Tab5Section:NewToggle("Fireworks Barrel", "Free", function(state)
+    FireworksBarrel = state
+    task.spawn(function()
+        while FireworksBarrel do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "FireworksBarrel", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local FlagPole = false
+
+Tab5Section:NewToggle("Flag Pole", "Free", function(state)
+    FlagPole = state
+    task.spawn(function()
+        while FlagPole do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "FlagPole", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local FerrisWheel = false
+
+Tab5Section:NewToggle("Ferris Wheel", "Free", function(state)
+    FerrisWheel = state
+    task.spawn(function()
+        while FerrisWheel do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "FerrisWheel", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
+
+local PlayerStatue = false
+
+Tab5Section:NewToggle("Player Statue", "Free", function(state)
+    PlayerStatue = state
+    task.spawn(function()
+        while PlayerStatue do
+            game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent"):FireServer({{item = "PlayerStatue", shop = "BlackMarket"},"M"})
+            task.wait(0.01)
+        end
+    end)
+end)
