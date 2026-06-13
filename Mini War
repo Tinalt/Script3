@@ -630,8 +630,3 @@ Tab5Section:NewToggle("Player Statue", "Free", function(state)
         end
     end)
 end)
-
-Tab6Section:NewButton("Free Emotes","Free",function()
-
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Tinalt/Scripts/main/ABW%20Emotes'))()
-end)
