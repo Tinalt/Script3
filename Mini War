@@ -55,6 +55,7 @@ local Tab4 = window:NewTab("Special")
 local Tab4Section = Tab4:NewSection("Special")
 
 local Tab5 = window:NewTab("Black Market")
+local Tab5Section = Tab5:NewSection("Special")
 
 --Buttons
 
