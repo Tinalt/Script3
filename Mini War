@@ -632,5 +632,3 @@ Tab6Section:NewButton("Anti Afk","Anti Afk",function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/krissisis898-dev/Roblox-/refs/heads/main/Roblox%20Anti%20AFK-Script%20(updatet)", true))()
 
 end)
-
-local Tab6Section = Tab6:NewSection("Script Made Tin")
