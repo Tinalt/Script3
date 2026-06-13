@@ -57,6 +57,10 @@ local Tab4Section = Tab4:NewSection("Special")
 local Tab5 = window:NewTab("Black Market")
 
 local Tab6 = window:NewTab("Misc")
+local Tab6Section = Tab6:NewSection("Script Made Tin")
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Tinalt/Scripts/main/ABW%20Emotes'))()
+end)
 
 --Buttons
 
