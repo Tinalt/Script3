@@ -56,6 +56,8 @@ local Tab4Section = Tab4:NewSection("Special")
 
 local Tab5 = window:NewTab("Black Market")
 
+local Tab6 = window:NewTab("Misc")
+
 --Buttons
 
 local remote = game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent")
@@ -624,3 +626,11 @@ Tab5Section:NewToggle("Player Statue", "Free", function(state)
         end
     end)
 end)
+
+Tab6Section:NewButton("Anti Afk","Anti Afk",function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/krissisis898-dev/Roblox-/refs/heads/main/Roblox%20Anti%20AFK-Script%20(updatet)", true))()
+
+end)
+
+local Tab6Section = Tab6:NewSection("Script Made Tin")
