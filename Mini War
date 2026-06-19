@@ -1,3 +1,24 @@
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+Notify({
+Description = "Made By Tin";
+Title = "Mini War";
+Duration = 4;
+});
+
+if game.CoreGui:FindFirstChild("ScreenGui") then
+    print(".")
+end
+
+wait(0.2)
+
+
+
+
+
+
+
+
 local kavoUi = loadstring(game:HttpGet("https://raw.githubusercontent.com/Toilatin/Insane-elevator/main/Insane2"))()
 local window = kavoUi.CreateLib("Mini War | Made By Tin","BloodTheme")
 
