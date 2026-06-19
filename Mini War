@@ -1,5 +1,5 @@
 local kavoUi = loadstring(game:HttpGet("https://raw.githubusercontent.com/Toilatin/Insane-elevator/main/Insane2"))()
-local window = kavoUi.CreateLib("Mini War","BloodTheme")
+local window = kavoUi.CreateLib("Mini War | Made By Tin","BloodTheme")
 
 local gui = Instance.new("ScreenGui")
 gui.Name = "tinGui"
@@ -55,6 +55,9 @@ local Tab4 = window:NewTab("Special")
 local Tab4Section = Tab4:NewSection("Special")
 
 local Tab5 = window:NewTab("Black Market")
+
+local Tab6 = window:NewTab("Misc")
+local Tab6Section = Tab6:NewSection("Misc")
 
 --Buttons
 
@@ -150,7 +153,7 @@ CreateFarmToggle("Area 51 Lab", "Area51Lab")
 CreateFarmToggle("Antimatter Reactor", "AntimatterReactor")
 CreateFarmToggle("Quantum Core Generator", "QuantumCoreGenerator")
 
-
+-- Tab2
 
 
 local remote = game:GetService("ReplicatedStorage"):WaitForChild("ncxyzero_bridgenet2-fork@1.1.5"):WaitForChild("dataRemoteEvent")
@@ -624,3 +627,44 @@ Tab5Section:NewToggle("Player Statue", "Free", function(state)
         end
     end)
 end)
+
+Tab6Section:NewButton("Anti Afk","Anti Afk",function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/krissisis898-dev/Roblox-/refs/heads/main/Roblox%20Anti%20AFK-Script%20(updatet)", true))()
+
+end)
+
+Tab6Section:NewButton("Infinite Yield","Admins",function()
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+
+end)
+
+Tab6Section:NewButton("Fly","Fly",function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+
+end)
+
+local speed = 16
+
+Tab6Section:NewTextBox("Walk Speed", "Type speed here", function(value)
+    local num = tonumber(value)
+
+    if num then
+        speed = num
+        
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("Humanoid") then
+            player.Character.Humanoid.WalkSpeed = speed
+        end
+    end
+end)
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
+    task.wait(1)
+    if char:FindFirstChild("Humanoid") then
+        char.Humanoid.WalkSpeed = speed
+    end
+end)
+
