@@ -122,7 +122,8 @@ Tab1Section:NewToggle("Buy All Farm", "Free", function(state)
                 "Blackhole Generator",
                 "Area51Lab",
                 "AntimatterReactor",
-                "QuantumCoreGenerator"
+                "QuantumCoreGenerator",
+                "SupernovaAccelerator"
             }) do
                 BuyItem("Farm", item)
             end
@@ -169,6 +170,7 @@ CreateFarmToggle("Blackhole Generator", "Blackhole Generator")
 CreateFarmToggle("Area 51 Lab", "Area51Lab")
 CreateFarmToggle("Antimatter Reactor", "AntimatterReactor")
 CreateFarmToggle("Quantum Core Generator", "QuantumCoreGenerator")
+CreateFarmToggle("Supernova Accelerator", "SupernovaAccelerator")
 
 -- Tab2
 
@@ -358,7 +360,8 @@ Tab4Section:NewToggle("Buy All", "Free", function(state)
                 "Workshop",
                 "Storage Center",
                 "Soldier Statue",
-                "Worker Statue"
+                "Worker Statue",
+                "ClansHub"
             }) do
                 BuyItem("Decor", item)
             end
@@ -387,6 +390,7 @@ CreateToggle("Workshop", "Workshop")
 CreateToggle("Storage Center", "Storage Center")
 CreateToggle("Soldier Statue", "Soldier Statue")
 CreateToggle("Worker Statue", "Worker Statue")
+CreateToggle("Clans Hub", "ClansHub")
 
 
 
