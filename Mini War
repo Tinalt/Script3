@@ -535,6 +535,7 @@ end
 
 CreateBlackMarketToggle("Gem Mine", "GemMine")
 CreateBlackMarketToggle("Clone Facility", "CloneFacility")
+CreateBlackMarketToggle("Clone Facility V2", "CloneFacilityV2")
 
 local Tab5Section = Tab5:NewSection("⭐️ Special ⭐️")
 
