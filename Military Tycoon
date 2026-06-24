@@ -187,3 +187,32 @@ Tab1Section:NewToggle("Auto Collect", "Free", function(state)
         end)
     end
 end)
+
+local AutoRebirth = false
+
+Tab1Section:NewToggle("Auto Rebirth", "Free", function(state)
+    AutoRebirth = state
+
+    local player = game:GetService("Players").LocalPlayer
+
+    if state then
+        task.spawn(function()
+            while AutoRebirth do
+                local popup = player.PlayerGui:FindFirstChild("RebirthPopup")
+
+                if popup then
+                    popup:Destroy()
+                end
+
+                local button = player.PlayerGui
+                    :WaitForChild("Rebirth")
+                    :WaitForChild("Rebirth")
+                    :WaitForChild("BuyRebirth")
+
+                firesignal(button.Activated)
+
+                task.wait(1)
+            end
+        end)
+    end
+end)
