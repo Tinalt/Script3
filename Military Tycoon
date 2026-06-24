@@ -333,3 +333,43 @@ Tab3Section:NewButton("TP To Base", "Teleport", function()
         root.CFrame = target.CFrame + Vector3.new(0, 5, 0)
     end
 end)
+
+Tab2Section:NewButton("Anti Afk","Anti Afk",function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/krissisis898-dev/Roblox-/refs/heads/main/Roblox%20Anti%20AFK-Script%20(updatet)", true))()
+
+end)
+
+Tab2Section:NewButton("Infinite Yield","Admins",function()
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+
+end)
+
+Tab2Section:NewButton("Fly","Fly",function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+
+end)
+
+local speed = 16
+
+Tab2Section:NewTextBox("Walk Speed", "Type speed here", function(value)
+    local num = tonumber(value)
+
+    if num then
+        speed = num
+        
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("Humanoid") then
+            player.Character.Humanoid.WalkSpeed = speed
+        end
+    end
+end)
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
+    task.wait(1)
+    if char:FindFirstChild("Humanoid") then
+        char.Humanoid.WalkSpeed = speed
+    end
+end)
