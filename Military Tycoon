@@ -312,6 +312,7 @@ for _, pos in ipairs(positions2) do
         task.wait(0.1)
     end
 
-    task.wait(0.5)
+    task.wait(1)
+root.CFrame = CFrame.new(-368.4033508300781, 131.2794647216797, -1384.111083984375)
 end
 end)
