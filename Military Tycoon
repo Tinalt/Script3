@@ -1,128 +1,4 @@
-local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
-local Notify = AkaliNotif.Notify;
-Notify({
-Description = "Made By Tin";
-Title = "Military Tycoon";
-Duration = 4;
-});
-
-if game.CoreGui:FindFirstChild("ScreenGui") then
-    print(".")
-end
-
-wait(0.2)
-
-local kavoUi = loadstring(game:HttpGet("https://raw.githubusercontent.com/Toilatin/Insane-elevator/main/Insane2"))()
-local window = kavoUi.CreateLib("Military Tycoon | Made By Tin","BloodTheme")
-
-local gui = Instance.new("ScreenGui")
-gui.Name = "tinGui"
-gui.Parent = game.CoreGui
-
-local TextButton = Instance.new("TextButton")
-TextButton.Text = "Show\nui"
-TextButton.TextSize = 14
-TextButton.TextColor3 = Color3.new(1, 1, 1)
-TextButton.BackgroundColor3 = Color3.new(0, 0, 0)
-TextButton.BorderColor3 = Color3.new(0, 0, 0)
-TextButton.BackgroundTransparency = 0.5
-TextButton.BorderSizePixel = 4
-TextButton.Font = Enum.Font.Code
-TextButton.Size = UDim2.new(0, 50, 0, 50)
-TextButton.Position = UDim2.new(1, -110, 0, 10)
-
-local isVisible = false
-TextButton.MouseButton1Click:Connect(function()
-    isVisible = not isVisible
-    if isVisible then
-        TextButton.Text = "Hide\nui"
-    else
-        TextButton.Text = "Show\nui"
-    end
-    kavoUi:ToggleUI()
-end)
-TextButton.Parent = gui
-TextButton.Draggable = true
-
-local cornerUI = Instance.new("UICorner")
-cornerUI.CornerRadius = UDim.new(0, 5)
-cornerUI.Parent = TextButton
-
-local uiStroke = Instance.new("UIStroke")
-uiStroke.Color = Color3.new(0, 0, 0)
-uiStroke.Thickness = 2
-uiStroke.Parent = TextButton
----Hi
-local Tab1 = window:NewTab("Main")
-local Tab1Section = Tab1:NewSection("Main")
-
-local Tab2 = window:NewTab("Misc")
-local Tab2Section = Tab2:NewSection("Misc")
-
-local Tab3 = window:NewTab("Credits")
-local Tab3Section = Tab3:NewSection("Credits")
-
---Buttons
-
-  local AutoUpgrade = false
-
-Tab1Section:NewToggle("Auto Upgrade Tycoon", "Free", function(state)
-    AutoUpgrade = state
-
-    if state then
-        task.spawn(function()
-            while AutoUpgrade do
-                local Players = game:GetService("Players")
-                local player = Players.LocalPlayer
-
-                local tycoons = workspace:WaitForChild("PlayerTycoons")
-                local myTycoon
-
-                for _, tycoon in pairs(tycoons:GetChildren()) do
-                    if tycoon.Name == player.Name then
-                        myTycoon = tycoon
-                        break
-                    end
-                end
-
-                if not myTycoon then
-                    return
-                end
-
-                local buttonFolder = myTycoon:WaitForChild("ButtonFolder")
-                local character = player.Character or player.CharacterAdded:Wait()
-                local root = character:WaitForChild("HumanoidRootPart")
-
-                local specialButton = buttonFolder:FindFirstChild("NewBase_SecondFloor_Window2")
-
-                if specialButton then
-                    local part = specialButton:IsA("BasePart") and specialButton or specialButton:FindFirstChildWhichIsA("BasePart", true)
-
-                    while AutoUpgrade and specialButton.Parent do
-                        root.CFrame = part.CFrame + Vector3.new(0,5,0)
-                        task.wait(0.3)
-                    end
-                end
-
-                for _, button in ipairs(buttonFolder:GetChildren()) do
-                    if not AutoUpgrade then break end
-
-                    if button.Name == "NewBase_SecondFloor_Window2" then
-                        continue
-                    end
-
-                    if string.match(button.Name, "^Vault_Storage")
-                    or button.Name == "SuperSoldier"
-                    or button.Name == "DoubleBlueprints"
-                    or button.Name == "AttackHusky" then
-                        continue
-                    end
-
-                    local part
-
-                    if button:IsA("BasePart") then
-                        part = button
-                    else
+else
                         part = button:FindFirstChildWhichIsA("BasePart", true)
                     end
 
@@ -142,6 +18,47 @@ local collectButton = myTycoon
                 root.CFrame = collectButton.CFrame + Vector3.new(0,5,0)
 
                 task.wait(1)
+            end
+        end)
+    end
+end)
+
+local AutoCollect = false
+
+Tab1Section:NewToggle("Auto Collect", "Free", function(state)
+    AutoCollect = state
+
+    if state then
+        task.spawn(function()
+            while AutoCollect do
+                local Players = game:GetService("Players")
+                local player = Players.LocalPlayer
+
+                local tycoons = workspace:WaitForChild("PlayerTycoons")
+                local myTycoon
+
+                for _, tycoon in pairs(tycoons:GetChildren()) do
+                    if tycoon.Name == player.Name then
+                        myTycoon = tycoon
+                        break
+                    end
+                end
+
+                if not myTycoon then
+                    return
+                end
+
+                local character = player.Character or player.CharacterAdded:Wait()
+                local root = character:WaitForChild("HumanoidRootPart")
+
+                local collectButton = myTycoon
+                    :WaitForChild("Models")
+                    :WaitForChild("TotalGiver")
+                    :WaitForChild("CollectButton")
+
+                root.CFrame = collectButton.CFrame + Vector3.new(0,5,0)
+
+                task.wait(5)
             end
         end)
     end
