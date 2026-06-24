@@ -66,6 +66,25 @@ local Tab3Section = Tab3:NewSection("Credits")
 
   local AutoUpgrade = false
 
+local function isBlacklisted(name)
+    if name == "NewBase_SecondFloor_Window2"
+        or name == "SuperSoldier"
+        or name == "DoubleBlueprints"
+        or name == "AttackHusky" then
+        return true
+    end
+
+    if string.match(name, "^Vault_") then
+        return true
+    end
+
+    if string.match(name, "^DBDiamond_Statue") then
+        return true
+    end
+
+    return false
+end
+
 Tab1Section:NewToggle("Auto Upgrade Tycoon", "Free", function(state)
     AutoUpgrade = state
 
@@ -85,9 +104,7 @@ Tab1Section:NewToggle("Auto Upgrade Tycoon", "Free", function(state)
                     end
                 end
 
-                if not myTycoon then
-                    return
-                end
+                if not myTycoon then return end
 
                 local buttonFolder = myTycoon:WaitForChild("ButtonFolder")
                 local character = player.Character or player.CharacterAdded:Wait()
@@ -104,22 +121,15 @@ Tab1Section:NewToggle("Auto Upgrade Tycoon", "Free", function(state)
                     end
                 end
 
+                local buttons = {}
+
                 for _, button in ipairs(buttonFolder:GetChildren()) do
                     if not AutoUpgrade then break end
 
-                    if button.Name == "NewBase_SecondFloor_Window2" then
-                        continue
-                    end
-
-                    if string.match(button.Name, "^Vault_Storage")
-                    or button.Name == "SuperSoldier"
-                    or button.Name == "DoubleBlueprints"
-                    or button.Name == "AttackHusky" then
-                        continue
-                    end
-
+                   if isBlacklisted(button.Name) then
+    continue
+end
                     local part
-
                     if button:IsA("BasePart") then
                         part = button
                     else
@@ -127,14 +137,23 @@ Tab1Section:NewToggle("Auto Upgrade Tycoon", "Free", function(state)
                     end
 
                     if part then
-                        root.CFrame = part.CFrame + Vector3.new(0,5,0)
-                        task.wait(0.8)
+                        table.insert(buttons, part)
                     end
+                end
+
+                table.sort(buttons, function(a, b)
+                    return (a.Position - root.Position).Magnitude < (b.Position - root.Position).Magnitude
+                end)
+
+                for _, part in ipairs(buttons) do
+                    if not AutoUpgrade then break end
+                    root.CFrame = part.CFrame + Vector3.new(0,5,0)
+                    task.wait(0.8)
                 end
 
                 task.wait(1)
 
-local collectButton = myTycoon
+                local collectButton = myTycoon
                     :WaitForChild("Models")
                     :WaitForChild("TotalGiver")
                     :WaitForChild("CollectButton")
