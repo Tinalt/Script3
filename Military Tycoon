@@ -59,8 +59,8 @@ local Tab1Section = Tab1:NewSection("Main")
 local Tab2 = window:NewTab("Misc")
 local Tab2Section = Tab2:NewSection("Misc")
 
-local Tab3 = window:NewTab("Credits")
-local Tab3Section = Tab3:NewSection("Credits")
+local Tab3 = window:NewTab("Teleport")
+local Tab3Section = Tab3:NewSection("Teleport")
 
 --Buttons
 
@@ -315,4 +315,21 @@ for _, pos in ipairs(positions2) do
     task.wait(1)
 root.CFrame = CFrame.new(-368.4033508300781, 131.2794647216797, -1384.111083984375)
 end
+end)
+
+Tab3Section:NewButton("TP To Base", "Teleport", function()
+    local player = game:GetService("Players").LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local root = character:WaitForChild("HumanoidRootPart")
+
+    local target = workspace:WaitForChild("LocalTycoon")
+        :WaitForChild("Pedestal_GloryCrate")
+        :WaitForChild("CratePack")
+        :WaitForChild("Chest")
+        :WaitForChild("LidChest")
+        :WaitForChild("LidChain")
+
+    if target and target:IsA("BasePart") then
+        root.CFrame = target.CFrame + Vector3.new(0, 5, 0)
+    end
 end)
