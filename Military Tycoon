@@ -334,6 +334,10 @@ Tab3Section:NewButton("TP To Base", "Teleport", function()
     end
 end)
 
+Tab3Section:NewButton("TP To Warehouse", "Teleport", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1246.316, 114.914, -408.448)
+end)
+
 Tab2Section:NewButton("Anti Afk","Anti Afk",function()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/krissisis898-dev/Roblox-/refs/heads/main/Roblox%20Anti%20AFK-Script%20(updatet)", true))()
