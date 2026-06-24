@@ -13,7 +13,7 @@ end
 wait(0.2)
 
 local kavoUi = loadstring(game:HttpGet("https://raw.githubusercontent.com/Toilatin/Insane-elevator/main/Insane2"))()
-local window = kavoUi.CreateLib("Mini War | Made By Tin","BloodTheme")
+local window = kavoUi.CreateLib("Military Tycoon | Made By Tin","BloodTheme")
 
 local gui = Instance.new("ScreenGui")
 gui.Name = "tinGui"
